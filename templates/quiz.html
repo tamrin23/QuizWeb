@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>English Quiz</title>
+</head>
+
+<body>
+
+    <div class="quiz-container">
+
+        <h1>English Quiz</h1>
+
+        {% if submitted %}
+            <div class="score">
+                Score: {{ score }}/{{ questions|length }}
+            </div>
+        {% endif %}
+
+        <p class="quiz-topic">Topic: {{ topic }}</p>
+
+        <form action="/submit-quiz" method="POST">
+
+            {% for question in questions %}
+
+                {% set question_number = loop.index %}
+                {% set result = results[loop.index0] if submitted else None %}
+
+                <div class="question">
+
+                    <h3>{{ question_number }}. {{ question.question }}</h3>
+
+                    {% for option in question.options %}
+
+                        {% if submitted and option == result.correct_answer %}
+                            <label class="option correct">
+                                <input
+                                    type="radio"
+                                    name="q{{ question_number }}"
+                                    value="{{ option }}"
+                                    {% if result.user_answer == option %}checked{% endif %}
+                                    disabled
+                                >
+                                {{ option }} &nbsp;  ✓
+                            </label>
+
+                        {% elif submitted and option == result.user_answer %}
+                            <label class="option wrong">
+                                <input
+                                    type="radio"
+                                    name="q{{ question_number }}"
+                                    value="{{ option }}"
+                                    checked
+                                    disabled
+                                >
+                                {{ option }}  &nbsp; &nbsp;✗
+                            </label>
+
+                        {% else %}
+                            <label class="option">
+                                <input
+                                    type="radio"
+                                    name="q{{ question_number }}"
+                                    value="{{ option }}"
+                                    {% if submitted and result.user_answer == option %}checked{% endif %}
+                                    {% if submitted %}disabled{% endif %}
+                                >
+                                {{ option }}
+                            </label>
+                        {% endif %}
+
+                        <br>
+
+                    {% endfor %}
+
+                    {% if submitted %}
+                        <p class="explanation">
+                            <strong>Explanation:</strong>
+                            {{ question.explanation }}
+                        </p>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+            <button type="submit" class="submit-btn">Submit Quiz</button>
+
+        </form>
+        {% if submitted %}
+            <br><br>
+
+            <a href="/">
+                <button type="button" class="new-quiz-btn">New Quiz</button>
+            </a>
+        {% endif %}
+    </div>
+</body>
+
+</html>

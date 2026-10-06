@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "difficulty": "easy",
+        "question": "She ___ to school every day.",
+        "options": ["go", "goes", "going", "gone"],
+        "correct_answer": "goes",
+        "explanation": "With 'she' in the simple present tense, we use 'goes'."
+    },
+    {
+        "id": 2,
+        "difficulty": "easy",
+        "question": "They ___ football yesterday.",
+        "options": ["play", "played", "playing", "plays"],
+        "correct_answer": "played",
+        "explanation": "We use the simple past 'played' for an action that happened yesterday."
+    },
+    {
+        "id": 3,
+        "difficulty": "medium",
+        "question": "By the time I arrived, he ___.",
+        "options": ["left", "has left", "had left", "leaves"],
+        "correct_answer": "had left",
+        "explanation": "Past perfect is used for an action completed before another past action."
+    },
+    {
+        "id": 4,
+        "difficulty": "medium",
+        "question": "I ___ this movie three times.",
+        "options": ["see", "saw", "have seen", "seeing"],
+        "correct_answer": "have seen",
+        "explanation": "Present perfect is used for an experience that has happened up to the present."
+    },
+    {
+        "id": 5,
+        "difficulty": "hard",
+        "question": "If I ___ more time, I would learn another language.",
+        "options": ["have", "had", "will have", "am having"],
+        "correct_answer": "had",
+        "explanation": "The second conditional uses 'if + past simple' for hypothetical situations."
+    }
+]

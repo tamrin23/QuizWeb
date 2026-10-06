@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>English Quiz AI</title>
+</head>
+
+<body>
+<div class = "container">
+    <h1>English Quiz AI</h1>
+
+    <p class="subtitle">Practice English QuiZZes.</p>
+
+    <form action="/start-quiz" method="POST">
+        <div class ="form-group">
+        <label for="topic">Topic:</label>
+
+        <select id="topic" name="topic">
+            <option value="parts_of_speech">Parts of Speech</option>
+            <option value="tenses">Tenses</option>
+            <option value="prepositions">Prepositions</option>
+            <option value="articles">Articles</option>
+            <option value="vocabulary">Vocabulary</option>               
+            <option value="subject_verb_agreement">Subject-Verb Agreement</option>
+            <option value="degree">Degree</option>
+            <option value="voice">Voice</option>
+            <option value="narration">Narration</option>
+            <option value="idioms_phrases">Idioms &amp; Phrases</option>
+        </select>
+        </div>
+        
+        <div class ="form-group">
+            <label for="number">Number of Questions:</label>
+
+            <select id="number" name="number">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+
+        <div class ="form-group">
+            <label for="difficulty">Difficulty:</label>
+
+            <select id="difficulty" name="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+
+        <button type="submit">Start Quiz</button>
+    </form>
+</div>
+</body>
+</html>
